@@ -1,0 +1,101 @@
+1-different files, same size:
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/src$ ipython main.py big big1
+-----------------------------------
+Comparing files  > big < big1
+-----------------------------------
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+/usr/lib/python2.7/dist-packages/IPython/utils/py3compat.pyc in execfile(fname, *where)
+    202             else:
+    203                 filename = fname
+--> 204             __builtin__.execfile(filename, *where)
+
+/home/mahmoud/NetBeansProjects/definiens/src/main.py in <module>()
+     32 
+     33 if __name__ == '__main__':
+---> 34     Main()
+
+/home/mahmoud/NetBeansProjects/definiens/src/main.py in __init__(self)
+     23         if self.get_file_size(filename=first_filename) == self.get_file_size(filename=second_filename):
+     24             if not self.hashlib_comparative(first_filename=first_filename, second_filename=second_filename):
+---> 25                 raise AssertionError('Compare result : Files are not equal in md5sum')
+     26 
+     27             else:
+
+AssertionError: Compare result : Files are not equal in md5sum
+
+2-different files, different size:
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/src$ ipython main.py big research_code.py
+-----------------------------------
+Comparing files  > big < research_code.py
+-----------------------------------
+---------------------------------------------------------------------------
+AssertionError                            Traceback (most recent call last)
+/usr/lib/python2.7/dist-packages/IPython/utils/py3compat.pyc in execfile(fname, *where)
+    202             else:
+    203                 filename = fname
+--> 204             __builtin__.execfile(filename, *where)
+
+/home/mahmoud/NetBeansProjects/definiens/src/main.py in <module>()
+     32 
+     33 if __name__ == '__main__':
+---> 34     Main()
+
+/home/mahmoud/NetBeansProjects/definiens/src/main.py in __init__(self)
+     29 
+     30         else:
+---> 31             raise AssertionError('Compare result : Files are not equal in size')
+     32 
+     33 if __name__ == '__main__':
+
+AssertionError: Compare result : Files are not equal in size
+
+3- same files:
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/src$ ipython main.py big big
+-----------------------------------
+Comparing files  > big < big
+-----------------------------------
+Compare result : Both files are equal
+
+4- unit testes:
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/src$ nosetests -xv unittests.py
+UT-1: Test (check_file) method with non exists file ... ok
+UT-2: Test (check_file) method with non file ... ok
+UT-3: Test (check_file) method with valid file ... ok
+UT-4: Test (get_file_size) method with small file size ... ok
+UT-5: Test (get_file_size) method with big file size ... ok
+UT-6: Test (hashlib_comparative) method with different files but same size ... ok
+UT-7: Test (hashlib_comparative) method with different files and different size ... ok
+UT-8: Test (hashlib_comparative) method with same files and same size ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 5.909s
+
+OK
+
+5- integration tests:
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/src$ nosetests -xv integrationtests.py 
+IT-1: Test (main.py) without files ... ok
+IT-2: Test (main.py) with one file ... ok
+IT-3: Test (main.py) with non exists first file ... ok
+IT-4: Test (main.py) with non exists second file ... ok
+IT-5: Test (main.py) with non first file (folder) ... ok
+IT-6: Test (main.py) with non second file (folder) ... ok
+IT-7: Test (main.py) with non exists first and second file ... ok
+IT-8: Test (main.py) with non file first and second (folder) ... ok
+IT-9: Test (main.py) with different files same small size ... ok
+IT-10: Test (main.py) with different files same big size ... ok
+IT-11: Test (main.py) with different files different small size ... ok
+IT-12: Test (main.py) with different files different big size ... ok
+IT-13: Test (main.py) with different files different small and big size ... ok
+IT-14: Test (main.py) with same files ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 29.868s
+
+OK
