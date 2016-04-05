@@ -28,4 +28,5 @@ Use ./tools/setup_env.sh to setup your virtual environment and then use nosetest
 
 ```
 compare_files_testsuite$> source ./tools/setup_env.sh
-compare_files_testsuite$> venv/bin/nosetests src/unittests.py
+compare_files_testsuite$> venv/bin/nosetests -xv src/unittests.py
+compare_files_testsuite$> venv/bin/nosetests -xv src/integrationtests.py
