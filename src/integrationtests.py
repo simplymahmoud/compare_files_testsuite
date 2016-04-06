@@ -7,7 +7,7 @@ class IntegrationTests(BaseTest):
 
     def _execute_main(self, first_file, second_file):
         command = "ipython main.py %s %s" % (first_file, second_file)
-        output, _  = self._execute_command(command)
+        output, _ = self._execute_command(command)
         if 'AssertionError' in output:
             raise AssertionError("Execute command failed")
         return output

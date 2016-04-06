@@ -27,6 +27,7 @@ else
 fi
 
 echo -e '\e[32m** Running tests ...\e[0m'
-venv/bin/nosetests --with-progressive src/unittests
-venv/bin/nosetests --with-progressive src/integrationtests
+cd src
+../venv/bin/nosetests -xv unittests.py
+../venv/bin/nosetests -xv integrationtests.py
 
