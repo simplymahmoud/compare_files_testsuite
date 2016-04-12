@@ -28,6 +28,10 @@ fi
 
 echo -e '\e[32m** Running tests ...\e[0m'
 cd src
+echo -e '\e[32m** Running python unittests ...\e[0m'
 ../venv/bin/nosetests -xv unittests.py
+echo -e '\e[32m** Running python integrationtests ...\e[0m'
 ../venv/bin/nosetests -xv integrationtests.py
-
+cd ../html-js
+echo -e '\e[32m** Running html/js seleniumtests ...\e[0m'
+../venv/bin/nosetests -xv seleniumtests.py

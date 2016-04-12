@@ -23,7 +23,10 @@ AssertionError                            Traceback (most recent call last)
      26 
      27             else:
 
-AssertionError: Compare result : Files are not equal in md5sum
+AssertionError: Compare result : Files are not equal in md5sum, check the diff using ipython pydiff.py file1 file2
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/src$ ipython pydiff.py unittests.py integrationtests.py
+Compare result : see pydiff.log
 
 2-different files, different size:
 
@@ -50,7 +53,12 @@ AssertionError                            Traceback (most recent call last)
      32 
      33 if __name__ == '__main__':
 
-AssertionError: Compare result : Files are not equal in size
+AssertionError: Compare result : Files are not equal in size, check the diff using ipython pydiff.py file1 file2
+
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/src$ ipython pydiff.py unittests.py integrationtests.py
+Compare result : see pydiff.log
+
 
 3- same files:
 
@@ -99,3 +107,17 @@ IT-14: Test (main.py) with same files ... ok
 Ran 14 tests in 29.868s
 
 OK
+
+mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/html-js$ nosetests -xv seleniumtests.py 
+IT-9: Test (index.html) with different files same small size ... ok
+IT-10: Test (index.html) with different files same big size ... ok
+IT-11: Test (index.html) with different files different small size ... ok
+IT-12: Test (index.html) with different files different big size ... ok
+IT-13: Test (index.html) with different files different small and big size ... ok
+IT-14: Test (index.html) with same files ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 39.016s
+
+OK
+
