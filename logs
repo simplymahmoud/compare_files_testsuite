@@ -108,6 +108,7 @@ Ran 14 tests in 29.868s
 
 OK
 
+6- htmls-js selenium tests:
 mahmoud@mahmoud-ThinkPad-T530:~/NetBeansProjects/definiens/html-js$ nosetests -xv seleniumtests.py 
 IT-9: Test (index.html) with different files same small size ... ok
 IT-10: Test (index.html) with different files same big size ... ok
@@ -121,3 +122,104 @@ Ran 6 tests in 39.016s
 
 OK
 
+7- using source tools/run_tests.sh:
+
+mahmoud@mahmoud-ThinkPad-T530:~/repos/compare_files_testsuite$ source tools/run_tests.sh
+** Creating venv ...
+New python executable in venv/bin/python
+Installing setuptools, pip...done.
+** Installing requirements ...
+Downloading/unpacking ipython (from -r requirements.txt (line 1))
+  Downloading ipython-4.1.2-py2-none-any.whl (736kB): 736kB downloaded
+Downloading/unpacking nose (from -r requirements.txt (line 2))
+  Downloading nose-1.3.7-py2-none-any.whl (154kB): 154kB downloaded
+Downloading/unpacking selenium (from -r requirements.txt (line 3))
+  Downloading selenium-2.53.1-py2-none-any.whl (884kB): 884kB downloaded
+Downloading/unpacking pickleshare (from ipython->-r requirements.txt (line 1))
+  Downloading pickleshare-0.7.2-py2.py3-none-any.whl
+Downloading/unpacking pexpect (from ipython->-r requirements.txt (line 1))
+  Downloading pexpect-4.0.1.tar.gz (143kB): 143kB downloaded
+  Running setup.py (path:/home/mahmoud/repos/compare_files_testsuite/venv/build/pexpect/setup.py) egg_info for package pexpect
+
+Downloading/unpacking setuptools>=18.5 (from ipython->-r requirements.txt (line 1))
+  Downloading setuptools-20.7.0-py2.py3-none-any.whl (508kB): 508kB downloaded
+Downloading/unpacking simplegeneric>0.8 (from ipython->-r requirements.txt (line 1))
+  Downloading simplegeneric-0.8.1.zip
+  Running setup.py (path:/home/mahmoud/repos/compare_files_testsuite/venv/build/simplegeneric/setup.py) egg_info for package simplegeneric
+
+Downloading/unpacking traitlets (from ipython->-r requirements.txt (line 1))
+  Downloading traitlets-4.2.1-py2.py3-none-any.whl (67kB): 67kB downloaded
+Downloading/unpacking decorator (from ipython->-r requirements.txt (line 1))
+  Downloading decorator-4.0.9-py2.py3-none-any.whl
+Downloading/unpacking pathlib2 (from pickleshare->ipython->-r requirements.txt (line 1))
+  Downloading pathlib2-2.1.0-py2.py3-none-any.whl
+Downloading/unpacking ptyprocess>=0.5 (from pexpect->ipython->-r requirements.txt (line 1))
+  Downloading ptyprocess-0.5.1-py2.py3-none-any.whl
+Downloading/unpacking ipython-genutils (from traitlets->ipython->-r requirements.txt (line 1))
+  Downloading ipython_genutils-0.1.0-py2.py3-none-any.whl
+Downloading/unpacking six (from pathlib2->pickleshare->ipython->-r requirements.txt (line 1))
+  Downloading six-1.10.0-py2.py3-none-any.whl
+Installing collected packages: ipython, nose, selenium, pickleshare, pexpect, setuptools, simplegeneric, traitlets, decorator, pathlib2, ptyprocess, ipython-genutils, six
+  Running setup.py install for pexpect
+      File "/home/mahmoud/repos/compare_files_testsuite/venv/lib/python2.7/site-packages/pexpect/async.py", line 16
+        transport, pw = yield from asyncio.get_event_loop()\
+                                 ^
+    SyntaxError: invalid syntax
+
+
+  Found existing installation: setuptools 2.2
+    Uninstalling setuptools:
+      Successfully uninstalled setuptools
+  Running setup.py install for simplegeneric
+
+  Could not find .egg-info directory in install record for simplegeneric>0.8 (from ipython->-r requirements.txt (line 1))
+Successfully installed ipython nose selenium pickleshare pexpect setuptools simplegeneric traitlets decorator pathlib2 ptyprocess ipython-genutils six
+Cleaning up...
+** Running tests ...
+** Running python unittests ...
+UT-1: Test (check_file) method with non exists file ... ok
+UT-2: Test (check_file) method with non file ... ok
+UT-3: Test (check_file) method with valid file ... ok
+UT-4: Test (get_file_size) method with small file size ... ok
+UT-5: Test (get_file_size) method with big file size ... ok
+UT-6: Test (hashlib_comparative) method with different files but same size ... ok
+UT-7: Test (hashlib_comparative) method with different files and different size ... ok
+UT-8: Test (hashlib_comparative) method with same files and same size ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 5.766s
+
+OK
+** Running python integrationtests ...
+IT-1: Test (main.py) without files ... ok
+IT-2: Test (main.py) with one file ... ok
+IT-3: Test (main.py) with non exists first file ... ok
+IT-4: Test (main.py) with non exists second file ... ok
+IT-5: Test (main.py) with non first file (folder) ... ok
+IT-6: Test (main.py) with non second file (folder) ... ok
+IT-7: Test (main.py) with non exists first and second file ... ok
+IT-8: Test (main.py) with non file first and second (folder) ... ok
+IT-9: Test (main.py) with different files same small size ... ok
+IT-10: Test (main.py) with different files same big size ... ok
+IT-11: Test (main.py) with different files different small size ... ok
+IT-12: Test (main.py) with different files different big size ... ok
+IT-13: Test (main.py) with different files different small and big size ... ok
+IT-14: Test (main.py) with same files ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 31.266s
+
+OK
+** Running html/js seleniumtests ...
+IT-9: Test (index.html) with different files same small size ... ok
+IT-10: Test (index.html) with different files same big size ... ok
+IT-11: Test (index.html) with different files different small size ... ok
+IT-12: Test (index.html) with different files different big size ... ok
+IT-13: Test (index.html) with different files different small and big size ... ok
+IT-14: Test (index.html) with same files ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 37.895s
+
+OK
+(venv)mahmoud@mahmoud-ThinkPad-T530:~/repos/compare_files_testsuite/html-js$
